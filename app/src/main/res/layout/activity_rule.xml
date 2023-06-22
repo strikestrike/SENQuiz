@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:text="@string/rule"
+        android:text="@string/make_quiz"
         app:layout_constraintBottom_toBottomOf="@+id/imageRule"
         app:layout_constraintStart_toEndOf="@+id/imageRule"
         app:layout_constraintTop_toTopOf="@+id/imageRule" />

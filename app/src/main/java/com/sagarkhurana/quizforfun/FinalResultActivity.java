@@ -10,8 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sagarkhurana.quizforfun.data.Attempt;
-import com.sagarkhurana.quizforfun.data.UserDatabase;
-import com.sagarkhurana.quizforfun.data.UserDatabaseClient;
+import com.sagarkhurana.quizforfun.data.QuizDatabase;
+import com.sagarkhurana.quizforfun.data.QuizDatabaseClient;
 import com.sagarkhurana.quizforfun.other.Constants;
 import com.sagarkhurana.quizforfun.other.SharedPref;
 import com.sagarkhurana.quizforfun.other.Utils;
@@ -95,7 +95,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            UserDatabase databaseClient = UserDatabaseClient.getInstance(getApplicationContext());
+            QuizDatabase databaseClient = QuizDatabaseClient.getInstance(getApplicationContext());
             overallPoints = databaseClient.userDao().getOverAllPoints(attempt.getEmail());
             return null;
         }
@@ -134,7 +134,7 @@ public class FinalResultActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            UserDatabase databaseClient = UserDatabaseClient.getInstance(getApplicationContext());
+            QuizDatabase databaseClient = QuizDatabaseClient.getInstance(getApplicationContext());
             databaseClient.userDao().insertAttempt(attempt);
             return null;
         }

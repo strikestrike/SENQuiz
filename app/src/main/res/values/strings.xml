@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuizForFun</string>
+    <string name="app_name">SEN QUIZ</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="username">Username</string>
@@ -21,8 +21,8 @@
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="start_quiz">Start Quiz</string>
-    <string name="rule">Rule</string>
-    <string name="history">History</string>
+    <string name="make_quiz">Make Quiz</string>
+    <string name="report">Progress Report</string>
     <string name="menu">Menu</string>
     <string name="quiz_option">Quiz Option</string>
     <string name="edit_password">Edit Password</string>
@@ -63,4 +63,30 @@
     <string name="rules4_description">
         Your results will be saved and will be accumulated in your history.
     </string>
+
+    <string name="version_app">version 1.0</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title">Title</string>
+    <string name="input_title">Input Title</string>
+    <string name="question">Question</string>
+    <string name="input_question">Input Question</string>
+    <string name="answer">Answer</string>
+    <string name="answer_image">Image</string>
+    <string name="answer_text">Text</string>
+    <string name="test_it">Test It</string>
+    <string name="cancel">Cacel</string>
+    <string name="save">Save</string>
+    <string name="countdown">Count Down</string>
+    <string name="input_countdown">Input Count Down</string>
+    <string name="choices">Number of Choices</string>
+    <string name="input_choices">Input Number of Choices</string>
+    <string name="reward_timer">Reward Timer</string>
+    <string name="input_reward_timer">Input Reward Timer</string>
+    <string name="linear_system">Linear System</string>
+    <string name="box1">Box 1</string>
+    <string name="box2">Box 2</string>
+    <string name="box3">Box 3</string>
+    <string name="box4">Box 4</string>
+    <string name="box5">Box 5</string>
 </resources>

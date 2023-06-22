@@ -9,9 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sagarkhurana.quizforfun.data.QuizDatabase;
 import com.sagarkhurana.quizforfun.data.User;
-import com.sagarkhurana.quizforfun.data.UserDatabase;
-import com.sagarkhurana.quizforfun.data.UserDatabaseClient;
+import com.sagarkhurana.quizforfun.data.QuizDatabaseClient;
 import com.sagarkhurana.quizforfun.other.SharedPref;
 
 public class EditPasswordActivity extends AppCompatActivity {
@@ -105,7 +105,7 @@ public class EditPasswordActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            UserDatabase databaseClient = UserDatabaseClient.getInstance(getApplicationContext());
+            QuizDatabase databaseClient = QuizDatabaseClient.getInstance(getApplicationContext());
             databaseClient.userDao().updateUser(user);
             return null;
         }

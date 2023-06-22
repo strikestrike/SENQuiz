@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_start_quiz"
+            android:icon="@drawable/ic_stopwatch"
+            android:title="Start Quiz" />
+        <item
+            android:id="@+id/nav_quiz_manager"
+            android:icon="@drawable/ic_design"
+            android:title="Quiz Manager" />
+        <item
+            android:id="@+id/nav_report"
+            android:icon="@drawable/ic_report"
+            android:title="Progress Report" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="Setting" />
+        <item
+            android:id="@+id/nav_quit"
+            android:icon="@drawable/ic_exit"
+            android:title="Logout" />
+    </group>
+</menu>

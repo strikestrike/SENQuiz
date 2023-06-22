@@ -12,8 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sagarkhurana.quizforfun.data.User;
-import com.sagarkhurana.quizforfun.data.UserDatabase;
-import com.sagarkhurana.quizforfun.data.UserDatabaseClient;
+import com.sagarkhurana.quizforfun.data.QuizDatabase;
+import com.sagarkhurana.quizforfun.data.QuizDatabaseClient;
 import com.sagarkhurana.quizforfun.other.SharedPref;
 
 import java.util.ArrayList;
@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            UserDatabase databaseClient = UserDatabaseClient.getInstance(getApplicationContext());
+            QuizDatabase databaseClient = QuizDatabaseClient.getInstance(getApplicationContext());
             users = (ArrayList<User>) databaseClient.userDao().observeAllUser();
             return null;
         }

@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <!-- Get Ready! Text -->
+    <TextView
+        android:id="@+id/getReadyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Get Ready!"
+        android:textColor="@color/peach"
+        android:fontFamily="@font/nunito_bold"
+        android:textSize="32sp" />
+
+    <!-- Countdown Text -->
+    <TextView
+        android:id="@+id/countdownText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/getReadyText"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+
+    <!-- Quiz Content -->
+    <RelativeLayout
+        android:id="@+id/quizContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <!-- Quiz Title -->
+        <TextView
+            android:id="@+id/quizTitleText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/nunito_bold"
+            android:textColor="#000000"
+            android:textSize="24sp" />
+
+        <!-- Quiz Question -->
+        <TextView
+            android:id="@+id/quizQuestionText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/quizTitleText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <com.sagarkhurana.quizforfun.widgets.CircleProgressBar
+            android:id="@+id/circleProgressBar"
+            android:layout_width="@dimen/progressBar_dimen"
+            android:layout_height="@dimen/progressBar_dimen"
+            android:layout_below="@id/quizQuestionText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            app:progressbarColor="@color/peach"
+            app:progress="0"
+            app:progressBarThickness="4dp" />
+
+        <!-- Answer Cards Container -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/answerRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/circleProgressBar"
+            android:layout_marginTop="20dp" />
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/resultCardView"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/resultImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/correct"
+                android:scaleType="centerCrop"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

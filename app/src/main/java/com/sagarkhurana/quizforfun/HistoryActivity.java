@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.sagarkhurana.quizforfun.adapter.HistoryAdapter;
 import com.sagarkhurana.quizforfun.data.Attempt;
-import com.sagarkhurana.quizforfun.data.UserDatabase;
-import com.sagarkhurana.quizforfun.data.UserDatabaseClient;
+import com.sagarkhurana.quizforfun.data.QuizDatabase;
+import com.sagarkhurana.quizforfun.data.QuizDatabaseClient;
 import com.sagarkhurana.quizforfun.data.UserWithAttempts;
 import com.sagarkhurana.quizforfun.other.SharedPref;
 
@@ -59,7 +59,7 @@ public class HistoryActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            UserDatabase databaseClient = UserDatabaseClient.getInstance(getApplicationContext());
+            QuizDatabase databaseClient = QuizDatabaseClient.getInstance(getApplicationContext());
             attempts = (ArrayList<Attempt>) databaseClient.userDao().getUserAndAttemptsWithSameEmail(email);
             return null;
         }

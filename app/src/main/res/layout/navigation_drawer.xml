@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.navigation.NavigationView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_view"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+    android:paddingEnd="10dp"
+    android:paddingStart="10dp"
+    app:itemIconTint="@color/drawer_item_color"
+    app:itemTextColor="@color/drawer_item_color"
+    app:headerLayout="@layout/nav_header_main"
+    app:itemBackground="@drawable/drawer_selected_item"
+    app:menu="@menu/menu_navigation_drawer"
+    tools:ignore="RtlSymmetry">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-13dp"
+        tools:layout_editor_absoluteY="-336dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/nunito_bold"
+            android:gravity="center_horizontal"
+            android:text="@string/version_app"
+            android:textColor="@color/dark_late_gray"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+</com.google.android.material.navigation.NavigationView>
