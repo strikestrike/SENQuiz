@@ -20,9 +20,6 @@
     <string name="create_account">Create Account</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
-    <string name="start_quiz">Start Quiz</string>
-    <string name="make_quiz">Make Quiz</string>
-    <string name="report">Progress Report</string>
     <string name="menu">Menu</string>
     <string name="quiz_option">Quiz Option</string>
     <string name="edit_password">Edit Password</string>
@@ -65,8 +62,14 @@
     </string>
 
     <string name="version_app">version 1.0</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="start_quiz">Start Quiz</string>
+    <string name="make_quiz">Make Quiz</string>
+    <string name="report">Progress Report</string>
+    <string name="btn_start_title">Start</string>
+    <string name="no_quiz">No Quiz</string>
+    <string name="no_answer">No Answer</string>
+    <string name="confirm_answer">Confirm Answer</string>
+
     <string name="title">Title</string>
     <string name="input_title">Input Title</string>
     <string name="question">Question</string>
@@ -77,6 +80,7 @@
     <string name="test_it">Test It</string>
     <string name="cancel">Cacel</string>
     <string name="save">Save</string>
+    <string name="loading">Loading...</string>
     <string name="countdown">Count Down</string>
     <string name="input_countdown">Input Count Down</string>
     <string name="choices">Number of Choices</string>

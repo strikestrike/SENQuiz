@@ -50,8 +50,8 @@
 
             <ImageView
                 android:id="@+id/imageView8"
-                android:layout_width="@dimen/start_quiz_image_view_size"
-                android:layout_height="@dimen/start_quiz_image_view_size"
+                android:layout_width="@dimen/home_card_height"
+                android:layout_height="@dimen/home_card_height"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -90,8 +90,8 @@
 
             <ImageView
                 android:id="@+id/imageView7"
-                android:layout_width="@dimen/start_quiz_image_view_size"
-                android:layout_height="@dimen/start_quiz_image_view_size"
+                android:layout_width="@dimen/home_card_height"
+                android:layout_height="@dimen/home_card_height"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -129,8 +129,8 @@
 
             <ImageView
                 android:id="@+id/imageView9"
-                android:layout_width="@dimen/start_quiz_image_view_size"
-                android:layout_height="@dimen/start_quiz_image_view_size"
+                android:layout_width="@dimen/home_card_height"
+                android:layout_height="@dimen/home_card_height"
                 android:layout_marginStart="24dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

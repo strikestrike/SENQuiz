@@ -1,29 +1,28 @@
 package com.sagarkhurana.quizforfun;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Toast;
 
-import com.sagarkhurana.quizforfun.data.User;
-import com.sagarkhurana.quizforfun.other.SharedPref;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int RETURN_DELAY = 10000; // 30 seconds delay
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 2323;
 
     @Override
@@ -31,28 +30,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /**
-         * Menu Navigation Drawer
-         **/
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-
         ImageView ibDrawerOpen = findViewById(R.id.ibDrawerOpen);
-        ImageView ibSetting = findViewById(R.id.ibSetting);
-        CardView cvStartQuiz = findViewById(R.id.cvStartQuiz);
-        CardView cvRule = findViewById(R.id.cvRule);
-        CardView cvHistory = findViewById(R.id.cvHistory);
-        CardView cvEditPassword = findViewById(R.id.cvEditPassword);
-        CardView cvLogout = findViewById(R.id.cvLogout);
-
-        SharedPref sharedPref = SharedPref.getInstance();
-        User user = sharedPref.getUser(this);
-
-        ibSetting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,SettingsActivity.class));
-            }
-        });
+        initComponentsNavHeader();
 
         ibDrawerOpen.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,46 +41,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        cvStartQuiz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                startActivity(new Intent(MainActivity.this,QuizActivity.class));
-                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                    stopLockTask();
-                }
-                launchYouTubeApp();
-                delayAndReturnToApp();
-            }
-        });
+        Button btnStartQuiz = findViewById(R.id.btnStart);
 
-        cvRule.setOnClickListener(new View.OnClickListener() {
+        btnStartQuiz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,QuizEditActivity.class));
-            }
-        });
-
-        cvHistory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,HistoryActivity.class));
-            }
-        });
-
-        cvEditPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this,EditPasswordActivity.class));
-            }
-        });
-
-        cvLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                sharedPref.clearSharedPref(MainActivity.this);
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(intent);
-                finish();
+                startActivity(new Intent(MainActivity.this,QuizActivity.class));
             }
         });
 
@@ -110,6 +56,47 @@ public class MainActivity extends AppCompatActivity {
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                 startLockTask();
             }
+        }
+    }
+
+    private void initComponentsNavHeader() {
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.nav_start_quiz:
+                        startActivity(new Intent(MainActivity.this, QuizActivity.class));
+                        break;
+                    case R.id.nav_quiz_manager:
+                        startActivity(new Intent(MainActivity.this, QuizEditActivity.class));
+                        break;
+                    case R.id.nav_report:
+                        startActivity(new Intent(MainActivity.this, HistoryActivity.class));
+                        break;
+                    case R.id.nav_setting:
+                        startActivity(new Intent(MainActivity.this, SettingsActivity.class));
+                        break;
+                    case R.id.nav_quit:
+                        finish();
+                        break;
+                }
+
+                DrawerLayout drawer = findViewById(R.id.drawer_layout);
+                drawer.closeDrawer(GravityCompat.START);
+                return true;
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 
@@ -142,25 +129,5 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intent, ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE);
         }
     }
-
-
-
-    private void launchYouTubeApp() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com"));
-        startActivity(intent);
-    }
-
-    private void delayAndReturnToApp() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // Return to your app
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
-            }
-        }, RETURN_DELAY);
-    }
-
 
 }

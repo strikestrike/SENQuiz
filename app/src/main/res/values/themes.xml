@@ -1,12 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.QuizForFun" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/peach</item>
-        <item name="colorPrimaryVariant">@color/peach</item>
-        <item name="colorOnPrimary">@color/white</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" >@color/bg_color</item>
+        <item name="android:windowLightStatusBar">true</item>
         <!-- Customize your theme here. -->
 
         <item name="textInputStyle">@style/editTextLayoutStyle</item>
@@ -16,14 +13,6 @@
         <item name="android:windowBackground">@drawable/splash_image</item>
         <item name="android:statusBarColor">@color/white</item>
     </style>
-
-<!--    <style name="editTextStyle" parent="">-->
-<!--        <item name="android:paddingStart">12dp</item>-->
-<!--        <item name="android:textColorHint">@color/gray</item>-->
-<!--&lt;!&ndash;        <item name="android:background">@drawable/</item>&ndash;&gt;-->
-<!--&lt;!&ndash;        <item name="android:layout_height">@dimen/editText_height</item>&ndash;&gt;-->
-<!--        <item name="buttonStyle">?android:attr/borderlessButtonStyle</item>-->
-<!--    </style>-->
 
     <style name="editTextLayoutStyle" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxStrokeWidth">0dp</item>
@@ -43,12 +32,6 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/peach</item>
         <item name="hintTextColor">@color/peach</item>
-    </style>
-
-    <style name="btnStyle" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/peach</item>
-        <item name="cornerRadius">@dimen/btn_radius</item>
-        <item name="android:layout_height">@dimen/btn_height</item>
     </style>
 
     <style name="titleTextStyle">
@@ -87,5 +70,33 @@
         <item name="buttonTint">@color/peach</item>
     </style>
 
+
+    <style name="btnStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/btn_bg_color</item>
+        <item name="cornerRadius">@dimen/btn_radius</item>
+        <item name="android:layout_height">@dimen/btn_height</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">6dp</item>
+    </style>
+
+    <style name="smallBtnStyle" parent="btnStyle">
+        <item name="cornerRadius">@dimen/btn_small_radius</item>
+        <item name="android:layout_height">@dimen/btn_small_height</item>
+    </style>
+
+    <style name="cancelBtnStyle" parent="smallBtnStyle">
+        <item name="backgroundTint">@color/white</item>
+    </style>
+
+    <style name="headingTextStyle">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="buttonTextStyle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
 
 </resources>

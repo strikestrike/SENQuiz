@@ -45,7 +45,7 @@ public class RulesViewPagerAdapter extends PagerAdapter {
         switch (position)
         {
             case 0:
-                logo.setImageResource(R.drawable.question1);
+                logo.setImageResource(R.drawable.correct);
                 title.setText(R.string.rules1_description);
                 break;
             case 1:

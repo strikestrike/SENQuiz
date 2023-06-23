@@ -1,31 +1,38 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <!-- Get Ready! Text -->
-    <TextView
-        android:id="@+id/getReadyText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Get Ready!"
-        android:textColor="@color/peach"
-        android:fontFamily="@font/nunito_bold"
-        android:textSize="32sp" />
-
     <!-- Countdown Text -->
+    <com.sagarkhurana.quizforfun.widgets.CircleProgressBar
+        android:id="@+id/circleProgressBar"
+        android:layout_width="@dimen/progressBar_dimen"
+        android:layout_height="@dimen/progressBar_dimen"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:progressbarColor="@color/btn_bg_color"
+        app:progress="0"
+        app:progressBarThickness="6dp" />
+
     <TextView
-        android:id="@+id/countdownText"
+        android:id="@+id/loadingTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/getReadyText"
-        android:layout_centerInParent="true"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:textColor="#000000"
-        android:textSize="24sp" />
+        android:background="#400000FF"
+        android:text="@string/loading"
+        android:textAlignment="center"
+        android:textColor="#800000FF"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/circleProgressBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Quiz Content -->
     <RelativeLayout
@@ -39,66 +46,69 @@
             android:id="@+id/quizTitleText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@id/ivAmplifier"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/nunito_bold"
-            android:textColor="#000000"
-            android:textSize="24sp" />
+            android:layout_marginBottom="20dp"
+            android:textAppearance="@style/headingTextStyle"
+            android:text="Show me the apple"/>
 
         <!-- Quiz Question -->
-        <TextView
-            android:id="@+id/quizQuestionText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/quizTitleText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:textColor="#000000"
-            android:textSize="18sp" />
-
-        <com.sagarkhurana.quizforfun.widgets.CircleProgressBar
-            android:id="@+id/circleProgressBar"
-            android:layout_width="@dimen/progressBar_dimen"
-            android:layout_height="@dimen/progressBar_dimen"
-            android:layout_below="@id/quizQuestionText"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
-            app:progressbarColor="@color/peach"
-            app:progress="0"
-            app:progressBarThickness="4dp" />
-
-        <!-- Answer Cards Container -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/answerRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/circleProgressBar"
-            android:layout_marginTop="20dp" />
+        <ImageView
+            android:id="@+id/ivAmplifier"
+            android:layout_width="@dimen/amplifier_image_width"
+            android:layout_height="@dimen/amplifier_image_height"
+            android:layout_centerInParent="true"
+            app:srcCompat="@drawable/amplifier" />
 
     </RelativeLayout>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/resultCardView"
-        android:layout_width="240dp"
-        android:layout_height="240dp"
-        android:layout_centerInParent="true"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/answerRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="170dp"
         android:visibility="gone"
-        app:cardCornerRadius="8dp">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnConfirm"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="16dp">
+    <ImageView
+        android:id="@+id/ivResult"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/correct"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-            <ImageView
-                android:id="@+id/resultImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/correct"
-                android:scaleType="centerCrop"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+    <TextView
+        android:id="@+id/tvError"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textAppearance="@style/headingTextStyle"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
-</RelativeLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirm"
+        style="@style/btnStyle"
+        android:layout_width="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="@string/confirm_answer"
+        android:textAppearance="@style/buttonTextStyle"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
