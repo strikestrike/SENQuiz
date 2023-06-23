@@ -79,12 +79,19 @@
         <item name="android:padding">6dp</item>
     </style>
 
-    <style name="smallBtnStyle" parent="btnStyle">
+    <style name="smallBtnStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/btn_bg_color</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">6dp</item>
         <item name="cornerRadius">@dimen/btn_small_radius</item>
         <item name="android:layout_height">@dimen/btn_small_height</item>
     </style>
 
-    <style name="cancelBtnStyle" parent="smallBtnStyle">
+    <style name="cancelBtnStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/dark_late_gray</item>
+        <item name="android:padding">6dp</item>
+        <item name="cornerRadius">@dimen/btn_small_radius</item>
+        <item name="android:layout_height">@dimen/btn_small_height</item>
         <item name="backgroundTint">@color/white</item>
     </style>
 

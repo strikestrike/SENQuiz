@@ -20,19 +20,25 @@
         android:id="@+id/edtAnswerText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="14dp"
         android:layout_marginHorizontal="10dp"
         app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
         app:layout_constraintStart_toEndOf="@id/ivAnswerImage"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:hintEnabled="false">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tiePassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:gravity="center_vertical"
+            android:singleLine="true"
             android:hint="@string/answer_text"
-            android:imeOptions="actionDone"
-            android:inputType="textPassword" />
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:background="@color/white"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.constraintlayout.widget.Guideline
@@ -42,27 +48,31 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.8" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageView
         android:id="@+id/buttonAdd"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        app:icon="@drawable/ic_add"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="6dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/ic_add"
+        android:background="@color/btn_bg_color"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@id/guidelineEnd"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageView
         android:id="@+id/buttonRemove"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        app:icon="@drawable/ic_remove"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="6dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="10dp"
+        android:src="@drawable/ic_remove"
+        android:background="@color/btn_bg_color"
+        android:clickable="true"
+        android:visibility="gone"
         app:layout_constraintStart_toEndOf="@id/guidelineEnd"
-        app:layout_constraintTop_toTopOf="parent"
-        android:visibility="gone" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

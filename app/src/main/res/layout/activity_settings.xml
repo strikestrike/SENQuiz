@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:background="@color/bg_color"
     tools:openDrawer="start">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -23,22 +24,23 @@
 
             <ImageView
                 android:id="@+id/ibDrawerOpen"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginTop="8dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="4dp"
                 android:src="@drawable/ic_drawer"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/peach"/>
+                app:layout_constraintTop_toTopOf="parent" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="50dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="70dp"
             app:layout_constraintTop_toBottomOf="@id/buttonContainer"
             app:layout_constraintBottom_toTopOf="@id/btnSave"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,9 +49,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="24dp"
-                android:layout_marginBottom="50dp"
-                tools:context=".SettingsActivity">
+                android:layout_margin="24dp">
 
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guidelineEnd"
@@ -62,7 +62,7 @@
                     android:id="@+id/lblCountDown"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/countdown"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -72,7 +72,6 @@
                     android:id="@+id/txtCountDown"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toTopOf="parent">
@@ -80,18 +79,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtCountDown"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/input_countdown"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblChoices"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/choices"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +104,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtCountDown">
@@ -110,18 +111,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtChoices"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/input_choices"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblRewardTimer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/reward_timer"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -132,7 +136,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtChocies">
@@ -140,11 +143,14 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtRewardTimer"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="@string/input_reward_timer"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <View
@@ -173,7 +179,7 @@
                     android:id="@+id/lblBox1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/box1"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -184,7 +190,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/lblLinearSystem">
@@ -192,17 +197,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtBox1"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblBox2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/box2"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +222,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtBox1">
@@ -221,17 +229,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtBox2"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblBox3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/box3"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -242,7 +254,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtBox2">
@@ -250,17 +261,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtBox3"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblBox4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/box4"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -271,7 +286,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtBox3">
@@ -279,17 +293,21 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtBox4"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:id="@+id/lblBox5"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:layout_marginTop="14dp"
                     android:text="@string/box5"
                     app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
                     app:layout_constraintStart_toStartOf="parent"
@@ -300,7 +318,6 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    app:hintEnabled="false"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/guidelineEnd"
                     app:layout_constraintTop_toBottomOf="@id/txtBox4">
@@ -308,11 +325,24 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edtBox5"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="50dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
                         android:imeOptions="actionNext"
                         android:inputType="text"
-                        android:singleLine="true" />
+                        android:background="@color/white"/>
                 </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/lblBox6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtBox5" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -322,8 +352,8 @@
             android:id="@+id/btnCancel"
             style="@style/btnStyle"
             android:layout_width="0dp"
-            android:layout_margin="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="0dp"
             android:text="@string/cancel"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btnSave"
@@ -333,8 +363,8 @@
             android:id="@+id/btnSave"
             style="@style/btnStyle"
             android:layout_width="0dp"
-            android:layout_margin="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginBottom="0dp"
             android:text="@string/save"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

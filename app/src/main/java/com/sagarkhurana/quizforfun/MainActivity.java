@@ -24,6 +24,8 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
 
     public static int ACTION_MANAGE_OVERLAY_PERMISSION_REQUEST_CODE= 2323;
+    private static final long LONG_PRESS_DURATION = 3000; // 3 seconds
+    private Handler longPressHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +36,34 @@ public class MainActivity extends AppCompatActivity {
         ImageView ibDrawerOpen = findViewById(R.id.ibDrawerOpen);
         initComponentsNavHeader();
 
+        ibDrawerOpen.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // Initialize the Handler
+                longPressHandler = new Handler();
+
+                // Start a delayed Runnable to open the menu after the long press duration
+                longPressHandler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        drawer.openDrawer(GravityCompat.START);
+                    }
+                }, LONG_PRESS_DURATION);
+
+                return true; // Return true to consume the long click event
+            }
+        });
+
         ibDrawerOpen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                drawer.openDrawer(GravityCompat.START);
+                // If the user taps the menu before the long press duration, remove the long press handler callbacks
+                if (longPressHandler != null) {
+                    longPressHandler.removeCallbacksAndMessages(null);
+                    longPressHandler = null;
+                } else {
+                    // Handle regular click behavior here (if any)
+                }
             }
         });
 

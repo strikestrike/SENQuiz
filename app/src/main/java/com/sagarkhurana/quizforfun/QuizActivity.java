@@ -46,7 +46,7 @@ public class QuizActivity extends AppCompatActivity {
     private RecyclerView answerRecyclerView;
     private ImageView ivResult;
     private TextView tvError;
-    private Button btnConfirm;
+//    private Button btnConfirm;
     private Answer selectedAnswer = null;
     TextToSpeech txt2Speech;
     private Visualizer visualizer;
@@ -85,13 +85,13 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        btnConfirm = findViewById(R.id.btnConfirm);
-        btnConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                flipAnswerCard();
-            }
-        });
+//        btnConfirm = findViewById(R.id.btnConfirm);
+//        btnConfirm.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                flipAnswerCard();
+//            }
+//        });
 
         quizDatabase = QuizDatabaseClient.getInstance(this);
 
@@ -120,7 +120,7 @@ public class QuizActivity extends AppCompatActivity {
         answerRecyclerView.setVisibility(View.GONE);
         ivResult.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
-        btnConfirm.setVisibility(View.GONE);
+//        btnConfirm.setVisibility(View.GONE);
 
         if (quizzes == null || quizzes.size() == 0) {
             Toast.makeText(this, getString(R.string.no_quiz), Toast.LENGTH_SHORT).show();
@@ -160,7 +160,7 @@ public class QuizActivity extends AppCompatActivity {
         answerRecyclerView.setVisibility(View.GONE);
         ivResult.setVisibility(View.GONE);
         tvError.setVisibility(View.GONE);
-        btnConfirm.setVisibility(View.GONE);
+//        btnConfirm.setVisibility(View.GONE);
 
         quizContainer.setAlpha(0f);
         quizContainer.animate()
@@ -239,7 +239,7 @@ public class QuizActivity extends AppCompatActivity {
             ivResult.setVisibility(View.GONE);
             tvError.setVisibility(View.GONE);
             answerRecyclerView.setVisibility(View.VISIBLE);
-            btnConfirm.setVisibility(View.VISIBLE);
+//            btnConfirm.setVisibility(View.VISIBLE);
         }
     }
 
@@ -290,6 +290,12 @@ public class QuizActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     selectedAnswer = answer;
                     notifyDataSetChanged();
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            flipAnswerCard();
+                        }
+                    }, 500);
                 }
             });
         }
@@ -324,14 +330,14 @@ public class QuizActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 if (selectedAnswer.isCorrect()) {
-//                                    startLoading();
                                     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
                                         stopLockTask();
                                     }
                                     launchYouTubeApp();
                                     delayAndReturnToApp();
                                 } else {
-                                    showNextQuiz();
+//                                    showNextQuiz();
+                                    startLoading();
                                 }
                             }
                         }, 1000);
@@ -341,7 +347,7 @@ public class QuizActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onPause(){
+    protected void onPause() {
         if(txt2Speech !=null){
             txt2Speech.stop();
             txt2Speech.shutdown();

@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -34,8 +35,8 @@ public class QuizEditActivity extends AppCompatActivity {
     private EditText editTextTitle;
     private EditText editTextQuestion;
     private LinearLayout answersLayout;
-    private Button buttonAdd;
-    private Button buttonRemove;
+    private ImageView buttonAdd;
+    private ImageView buttonRemove;
     private ImageView ivAnswerImage;
 
     @Override
@@ -75,8 +76,8 @@ public class QuizEditActivity extends AppCompatActivity {
 
     public void onAddButtonClick() {
         View answerItem = getLayoutInflater().inflate(R.layout.answer_item, answersLayout, false);
-        Button buttonAdd = answerItem.findViewById(R.id.buttonAdd);
-        Button buttonRemove = answerItem.findViewById(R.id.buttonRemove);
+        View buttonAdd = answerItem.findViewById(R.id.buttonAdd);
+        View buttonRemove = answerItem.findViewById(R.id.buttonRemove);
 
         buttonAdd.setVisibility(View.GONE);
         buttonRemove.setVisibility(View.VISIBLE);

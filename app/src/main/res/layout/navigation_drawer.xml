@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true"
     android:paddingEnd="10dp"
     android:paddingStart="10dp"
+    android:background="@color/bg_color"
     app:itemIconTint="@color/drawer_item_color"
     app:itemTextColor="@color/drawer_item_color"
     app:itemBackground="@drawable/drawer_selected_item"
